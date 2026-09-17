@@ -1,23 +1,8 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
+    path("admin/", admin.site.urls),
 
-    path("", views.index, name="index"),
-
-    path("student/", views.student, name="student"),
-
-    path(
-        "student/predict/",
-        views.student_prediction,
-        name="student_prediction"
-    ),
-
-    path("employee/", views.employee, name="employee"),
-
-    path(
-        "employee/predict/",
-        views.employee_prediction,
-        name="employee_prediction"
-    ),
+    path("", include("performanceapp.urls")),
 ]
